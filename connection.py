@@ -1,13 +1,14 @@
 import mysql.connector
+import os
 from mysql.connector import Error
 
 
 def open_database():
     try:
-        connection = mysql.connector.connect(host="localhost",
-                                             user="kvzsolt",
-                                             passwd="password",
-                                             db="sqltocsv")
+        connection = mysql.connector.connect(host=os.environ.get('MYSQL_HOST'),
+                                             user=os.environ.get('MYSQL_USER_NAME'),
+                                             passwd=os.environ.get('MYSQL_PASSWORD'),
+                                             db=os.environ.get('MYSQL_DB_NAME'))
     except Error as e:
         print("Error while connection to MySQL", e)
     return connection
