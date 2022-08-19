@@ -3,8 +3,7 @@ import wx
 from ObjectListView import ObjectListView, ColumnDefn
 from converter import converter
 
-tablelist = data_handler.get_database_name()
-tables = [value for value in tablelist[0].values()]
+tables = [dict['Tables_in_{dbname}'.format(dbname=os.environ.get('MYSQL_DB_NAME'))] for dict in data_handler.get_database_name()]
 toConvert = []
 
 
