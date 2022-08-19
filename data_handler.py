@@ -12,9 +12,9 @@ def get_database_name(cursor):
 
 
 @connection.connection_handler
-def get_all_data(cursor, dbname):
+def get_all_data(cursor, table):
     query = """
-    SELECT * FROM {dbname}
-    """.format(dbname=dbname)
+    SELECT * FROM {table}
+    """.format(table=table)
     cursor.execute(query)
     return cursor.fetchall()
