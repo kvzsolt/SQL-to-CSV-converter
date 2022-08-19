@@ -6,7 +6,7 @@ import os
 def get_database_name(cursor):
     query = """
         SHOW TABLES FROM {dbname}
-        """.format(dbname=os.environ.get('MYSQL_DB_NAME'))
+        """.format(dbname=os.environ.get('MYSQL_DB_NAME')) #fixed
     cursor.execute(query)
     return cursor.fetchall()
 
