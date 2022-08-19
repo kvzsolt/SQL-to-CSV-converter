@@ -3,7 +3,8 @@ import wx
 from ObjectListView import ObjectListView, ColumnDefn
 from converter import converter
 
-tables = [table['Tables_in_sqltocsv'] for table in data_handler.get_database_name()]
+tablelist = data_handler.get_database_name()
+tables = [value for value in tablelist[0].values()]
 toConvert = []
 
 
